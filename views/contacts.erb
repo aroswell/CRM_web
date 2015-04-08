@@ -1,2 +1,9 @@
 
-<h1>Here's the contact list bud!!!</h1>
+<h1>All Contacts:</h1>
+
+<ul>
+  <% @contacts.each do |each_contact|%>
+    <li><%= each_contact.first_name %> <%= each_contact.last_name%></li>
+    <!--<li><%= each_contact.display %></li>-->
+  <%end%>
+</ul>
