@@ -15,18 +15,18 @@ loop do                                             # Server runs forever
   end
   puts lines                                        # Output the full request to stdout
 
-  # client.puts(Time.now.ctime)                       # Output the current time to the client
-  response = "
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>My first web server</title>
-    </head>
-    <body>
-      <h1>Great message from web server</h1>
-      <p>Oh hey, this is my first HTML response!</p>
-    </body>
-</html>"
+
+
+  # filename = line.gsub(/GET \//,'').gsub(/\ HTTP.*/,'')
+  filename = 'index.html'
+
+  if File.exists?(filename)
+    response = File.read(filename)
+  else
+    response = "File not found\n"
+  end
+
+  # client.puts(Time.now.ctime)
   client.puts(response)
   client.close                                      # Disconnect from the client
 end
