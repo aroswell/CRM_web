@@ -2,8 +2,6 @@
 <h1>All Contacts:</h1>
 
 <ul>
-  <% $rolodex.contacts.each do |each_contact|%>
-    <!--<li><%= each_contact.first_name %> <%= each_contact.last_name%></li>-->
-    <li><%= each_contact.display %></li>
-  <%end%>
+  <li><%= $rolodex.display_all_contacts %></li>
+
 </ul>
