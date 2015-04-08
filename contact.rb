@@ -12,7 +12,7 @@ class Contact
   end
 
   def display
-    "\nFirst name: #{@first_name}\nLast name: #{@last_name}\nEmail: #{@email}\nNotes: #{@notes}\nI.D.: #{@id}"
+    "First name: #{@first_name}<br>Last name: #{@last_name}</br>Email: #{@email}<br>Notes: #{@notes}</br>I.D.: #{@id}"
   end
 
 end
