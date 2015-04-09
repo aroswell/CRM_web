@@ -25,11 +25,9 @@ class Rolodex
 
   def display_all_contacts
     return "There are no contacts" if @contacts.empty?
-
     @contacts.each do |item|
-    "First name: #{item.first_name}<br>Last name: #{item.last_name}</br>Email: #{item.email}<br>Notes: #{item.notes}</br>I.D.: #{item.id}"
+      "First name: #{item.first_name}<br>Last name: #{item.last_name}</br>Email: #{item.email}<br>Notes: #{item.notes}</br>I.D.: #{item.id}"
     end
-
   end
 
   def display_particular_contact(id)
