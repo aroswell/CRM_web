@@ -1,7 +1,7 @@
 # Rolodex class
 
 class Rolodex
-  # attr_accessor :contact_id
+  attr_reader :contacts
 
   def initialize
     @contacts = []
@@ -24,11 +24,12 @@ class Rolodex
   end
 
   def display_all_contacts
-    puts "Rolodex is empty" if @contacts.empty?
+    return "There are no contacts" if @contacts.empty?
 
     @contacts.each do |item|
-        puts item.display
+    "First name: #{item.first_name}<br>Last name: #{item.last_name}</br>Email: #{item.email}<br>Notes: #{item.notes}</br>I.D.: #{item.id}"
     end
+
   end
 
   def display_particular_contact(id)

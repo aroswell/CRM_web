@@ -2,6 +2,9 @@
 <h1>All Contacts:</h1>
 
 <ul>
-  <li><%= $rolodex.display_all_contacts %></li>
-
+   <% $rolodex.contacts.each do |item|%>
+  <li>
+    <%= "First name: #{item.first_name}<br>Last name: #{item.last_name}</br>Email: #{item.email}<br>Notes: #{item.notes}</br>I.D.: #{item.id}"%>
+  </li>
+    <%end%>
 </ul>
