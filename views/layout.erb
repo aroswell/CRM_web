@@ -7,12 +7,14 @@
 </head>
 <body>
 <h1 class ="template_h1">Typical Header From Layout.erb (template file)!</h1>
-<ul>
-  <li class="menu1"><a href="/home">Home</a></li>
+<nav>
+  <a href="/home">Home</a>
   <li class="menu2"><a href="/home">About</a></li>
   <li class="menu3"><a href="/contacts">Contacts</a></li>
   <li class="menu4"><a href="/contacts/new">Add New Contact</a></li>
-</ul>
+</nav>
+
+
   <%= yield %>
 
 <footer><p>Here's our template footer: Enjoy! :P</p></footer>
