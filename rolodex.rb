@@ -14,12 +14,19 @@ class Rolodex
     @contacts << new_cont
   end
 
-  def modify_contact(id, type, attribute_val)
-    @contacts.each do |people|
-        people.first_name = attribute_val if people.id == id && type == 1
-        people.last_name = attribute_val if people.id == id && type == 2
-        people.email = attribute_val if people.id == id && type == 3
-        people.notes = attribute_val if people.id == id && type == 4
+  def modify_contact(id, attribute_val)
+    puts id
+    puts attribute_val
+
+    person = find_particular_contact(id)
+    if person
+      person.first_name = attribute_val[:first_name]
+      person.last_name = attribute_val[:last_name]
+      person.email = attribute_val[:email]
+      person.notes = attribute_val[:notes]
+      return true
+    else
+      return nil
     end
   end
 
@@ -30,10 +37,11 @@ class Rolodex
     end
   end
 
-  def display_particular_contact(id)
+  def find_particular_contact(id)
     @contacts.each do |person|
       return person if person.id == id
     end
+    return nil
   end
 
   def display_info_by_attribute(type, attribute_val)
