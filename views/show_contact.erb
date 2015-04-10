@@ -1,10 +1,10 @@
-<h1>Requested Contact</h1>
+<h1><%= @requested_contact.first_name %> <%= @requested_contact.last_name %></h1>
+<p><strong>Email:</strong> <%= @requested_contact.email %></p>
+<p><strong>Note:</strong> <%= @requested_contact.notes %></p>
+
+<form action="/contacts/<%= @requested_contact.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="Delete Contact" value="Delete Contact">
+</form>
 
 
-<ul>
- <% #$rolodex.contacts.find{|contact| contact.id == 1001} %>
-  <li>
-    <%= "First name: #{@requested_contact.first_name}<br>Last name: #{@requested_contact.last_name}</br>Email: #{@requested_contact.email}<br>Notes: #{@requested_contact.notes}</br>I.D.: #{@requested_contact.id}" %>
-  </li>
-    <%#end%>
-</ul>

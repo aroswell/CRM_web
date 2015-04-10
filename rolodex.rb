@@ -15,9 +15,6 @@ class Rolodex
   end
 
   def modify_contact(id, attribute_val)
-    puts id
-    puts attribute_val
-
     person = find_particular_contact(id)
     if person
       person.first_name = attribute_val[:first_name]
