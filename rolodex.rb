@@ -31,8 +31,8 @@ class Rolodex
   end
 
   def display_particular_contact(id)
-    @contacts.each do |people|
-      puts people.display if people.id == id
+    @contacts.each do |person|
+      return person if person.id == id
     end
   end
 

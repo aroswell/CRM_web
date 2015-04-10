@@ -2,9 +2,9 @@
 
 
 <ul>
-   <% #$rolodex.contacts.find{|contact| contact.id == 1001} %>
+ <% #$rolodex.contacts.find{|contact| contact.id == 1001} %>
   <li>
-    <%= "First name: #{request_contact.first_name}<br>Last name: #{request_contact.last_name}</br>Email: #{request_contact.email}<br>Notes: #{request_contact.notes}</br>I.D.: #{request_contact.id}" %>
+    <%= "First name: #{@requested_contact.first_name}<br>Last name: #{@requested_contact.last_name}</br>Email: #{@requested_contact.email}<br>Notes: #{@requested_contact.notes}</br>I.D.: #{@requested_contact.id}" %>
   </li>
-    <%end%>
+    <%#end%>
 </ul>

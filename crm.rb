@@ -27,8 +27,8 @@ get '/contacts/new' do
   erb :new_contact
 end
 
-get '/contact/1001' do
-  @requested_contact = $rolodex.contacts.find{|each_contact| each_contact.id == 1000}
+get '/contacts/1001' do
+  @requested_contact = $rolodex.display_particular_contact(1001)
   erb :show_contact
 end
 
