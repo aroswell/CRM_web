@@ -3,8 +3,10 @@
 
 <ul>
    <% $rolodex.contacts.each do |item|%>
+  <a href="/contacts/<%= item.id %>">
   <li>
     <%= "First name: #{item.first_name}<br>Last name: #{item.last_name}</br>Email: #{item.email}<br>Notes: #{item.notes}</br>I.D.: #{item.id}"%>
   </li>
+  </a>
     <%end%>
 </ul>

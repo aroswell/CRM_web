@@ -18,6 +18,11 @@ get '/home' do
   erb :index
 end
 
+get '/' do
+  @crm_app_name = "My CRM"
+  erb :index
+end
+
 get '/contacts' do
 
   erb :contacts
@@ -60,5 +65,12 @@ post '/contacts' do
   redirect to('/contacts')
 end
 
+delete '/contacts/:id' do
+  if $rolodex.delete_contact(params[:id].to_i)
+    redirect to ('/home')
+  else
+    raise Sinatra::NotFound
+  end
+end
 
 

@@ -63,8 +63,12 @@ class Rolodex
 
   # delete contact based on contact id
   def delete_contact(id)
-    @contacts.each do |people|
-      @contacts.delete(people) if people.id == id
+    person = find_particular_contact(id)
+    if person
+      @contacts.delete(person)
+      return true
+    else
+      return nil
     end
   end
 
