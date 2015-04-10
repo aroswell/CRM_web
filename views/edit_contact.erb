@@ -1,0 +1,10 @@
+<h1>Edit Contact</h1>
+
+<form action="/contacts/<%= @requested_contact.id %>" method ="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="first_name" value="@requested_contact.first_name">
+  <input type="text" name="last_name" value="@requested_contact.last_name">
+  <p><input type="text" name="email" value="@requested_contact.email"></p>
+  <input type="text" name="note" value="@requested_contact.note">
+  <p><input type="submit" name="Submit"></p>
+</form>

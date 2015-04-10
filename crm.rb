@@ -27,9 +27,17 @@ get '/contacts/new' do
   erb :new_contact
 end
 
-get '/contacts/1001' do
-  @requested_contact = $rolodex.display_particular_contact(1001)
-  erb :show_contact
+get '/contacts/:id' do
+  @requested_contact = $rolodex.display_particular_contact(params[:id].to_i)
+  if @requested_contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+get '/contacts/:id/edit' do
+  erb :edit_contact
 end
 
 post '/contacts' do
