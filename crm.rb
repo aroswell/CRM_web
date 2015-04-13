@@ -4,15 +4,6 @@ require 'data_mapper'
 # require_relative 'contact'
 require_relative "rolodex"
 
-# $rolodex = Rolodex.new
-# @contacts = []
-# @contacts << Contact.new("Avery","Roswell","aroswell@groceryhustler.com","Founder & Owner")
-# @contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
-# @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
-# @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
-# @contacts.each do |each_contact|
-#   $rolodex.add_contact(each_contact)
-# end
 
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
 
@@ -23,24 +14,37 @@ class Contact
   property :first_name, String
   property :last_name, String
   property :email, String
-  property :notes, String
+  property :note, String
 end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+Contact.create(
+  first_name: "Avery",
+  last_name: "Roswell",
+  email: "aroswell@groceryhustler.com",
+  note: "Founder & Owner")
+Contact.create(
+  first_name: "Yehuda",
+  last_name: "Katz",
+  email: "yehuda@example.com",
+  note: "Developer")
+
+# @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
+# @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
+
+
 get '/home' do
-  @crm_app_name = "My CRM"
   erb :index
 end
 
 get '/' do
-  @crm_app_name = "My CRM"
   erb :index
 end
 
 get '/contacts' do
-
+  @contacts = Contact.all
   erb :contacts
 end
 
@@ -49,7 +53,7 @@ get '/contacts/new' do
 end
 
 get '/contacts/:id' do
-  @requested_contact = $rolodex.find_particular_contact(params[:id].to_i)
+  @requested_contact = Contact.get(params[:id])
   if @requested_contact
     erb :show_contact
   else
@@ -76,8 +80,14 @@ put '/contacts/:id' do
 end
 
 post '/contacts' do
-  new_contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note])
-  $rolodex.add_contact(new_contact)
+  # Should verify data before calling create class method
+
+  Contact.create(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    note: params[:note])
+
   redirect to('/contacts')
 end
 
