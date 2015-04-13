@@ -1,5 +1,6 @@
 # Customer Relationship Management
 require "sinatra"
+require 'data_mapper'
 require_relative 'contact'
 require_relative "rolodex"
 
@@ -12,6 +13,14 @@ $rolodex = Rolodex.new
 @contacts.each do |each_contact|
   $rolodex.add_contact(each_contact)
 end
+
+
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
+#Put Contact Class into here...
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 get '/home' do
   @crm_app_name = "My CRM"
