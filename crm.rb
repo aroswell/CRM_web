@@ -102,8 +102,11 @@ post '/contacts' do
 end
 
 delete '/contacts/:id' do
-  if $rolodex.delete_contact(params[:id].to_i)
-    redirect to ('/home')
+
+  if true
+    delete_contact = Contact.get(params[:id])
+    delete_contact.destroy
+    redirect to ('/contacts')
   else
     raise Sinatra::NotFound
   end
