@@ -1,23 +1,30 @@
 # Customer Relationship Management
 require "sinatra"
 require 'data_mapper'
-require_relative 'contact'
+# require_relative 'contact'
 require_relative "rolodex"
 
-$rolodex = Rolodex.new
-@contacts = []
-@contacts << Contact.new("Avery","Roswell","aroswell@groceryhustler.com","Founder & Owner")
-@contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
-@contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
-@contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
-@contacts.each do |each_contact|
-  $rolodex.add_contact(each_contact)
-end
-
+# $rolodex = Rolodex.new
+# @contacts = []
+# @contacts << Contact.new("Avery","Roswell","aroswell@groceryhustler.com","Founder & Owner")
+# @contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
+# @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
+# @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
+# @contacts.each do |each_contact|
+#   $rolodex.add_contact(each_contact)
+# end
 
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
 
-#Put Contact Class into here...
+class Contact
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :first_name, String
+  property :last_name, String
+  property :email, String
+  property :notes, String
+end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
