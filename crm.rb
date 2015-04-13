@@ -62,7 +62,7 @@ get '/contacts/:id' do
 end
 
 get '/contacts/:id/edit' do
-  @requested_contact = $rolodex.find_particular_contact(params[:id].to_i)
+  @requested_contact = Contact.get(params[:id])
   if @requested_contact
     erb :edit_contact
   else
@@ -71,8 +71,18 @@ get '/contacts/:id/edit' do
 end
 
 put '/contacts/:id' do
+  # Check/Verify users input and then proceed with:
 
-  if $rolodex.modify_contact(params[:id].to_i,params)
+  if true #using true for the moment
+    requested_contact = Contact.get(params[:id])
+
+    requested_contact.update(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      note: params[:note]
+      )
+
     redirect to('/contacts')
   else
     raise Sinatra::NotFound
