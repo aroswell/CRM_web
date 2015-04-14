@@ -4,12 +4,18 @@ body, html {
   margin: 0;
 }
 
+.div_header {
+  border: solid;
+  float: left;
+  width: 25%;
+}
 
 .header_img {
   margin: 0;
   padding: 0;
   border-width: 0;
   float: left;
+  height: 200px;
 }
 
 .template_header {
@@ -18,8 +24,8 @@ body, html {
   height: 50px;
   color: red;
   display: inline;
-  font-family: 'Rock Salt', cursive;
-  font-size: 50px;
+  font-family: Arial,'Rock Salt', cursive;
+  /*font-size: 50px;*/
   padding: 0;
   margin: 0;
   border: solid;
@@ -28,26 +34,8 @@ body, html {
 
 nav {
   background-color: blue;
-  margin: 0;
+  margin-left: 25%;
   text-align: center;
-  float: left;
-  /*width: 20%*/
-}
-.menu1 {
-  color: purple;
-
-}
-
-.menu-home {
-
-  display: inline-block;
-  color: red;
-  text-align: center;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 2px;
-  margin: 0;
-
 
 }
 

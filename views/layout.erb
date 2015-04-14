@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Customer Relationship Management</title>
-  <link rel="stylesheet" type = "text/css" href="style.css">
-</head>
-<body>
-  <img class="header_img" src="cropped-hands-worldmap-1734612-1920x1200-e1393974294658.jpg" alt="banner"> <!--width="1260" height="240"-->
+  <head>
+    <meta charset="UTF-8">
+    <title>Customer Relationship Management</title>
+    <link rel="stylesheet" type = "text/css" href="/style.css">
+  </head>
 
-<h1 class ="template_header">
-  CRM Global
-</h1>
-  <nav>
-    <a class="menu" href="/home">Home</a>
-    <a class="menu" href="/about">About</a>
-    <a class="menu" href="/contacts">Contacts</a>
-    <a class="menu" href="/contacts/new">Add New Contact</a>
-  </nav>
+  <body>
+    <img class="header_img" src="/cropped-hands-worldmap-1734612-1920x1200-e1393974294658.jpg" alt="banner"/> <!--width="1260" height="240"-->
+    <div class="div_header">
+      <h1 class ="template_header">
+        CRM Global
+      </h1>
+    </div>
 
-  <div class="yield">
-    <%= yield %>
-  </div>
+    <nav>
+      <a class="menu" href="/home">Home</a>
+      <a class="menu" href="/about">About</a>
+      <a class="menu" href="/contacts">Contacts</a>
+      <a class="menu" href="/contacts/new">Add New Contact</a>
+    </nav>
 
-<footer class="template_footer">
-  <p>Here's our template footer: Enjoy! :P</p>
-</footer>
+    <div class="yield">
+      <%= yield %>
+    </div>
 
-</body>
+    <footer class="template_footer">
+      <p>Here's our template footer: Enjoy! :P</p>
+    </footer>
+
+  </body>
 </html>
