@@ -20,27 +20,25 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-Contact.create(
-  first_name: "Avery",
-  last_name: "Roswell",
-  email: "aroswell@groceryhustler.com",
-  note: "Founder & Owner")
-Contact.create(
-  first_name: "Yehuda",
-  last_name: "Katz",
-  email: "yehuda@example.com",
-  note: "Developer")
-
-# @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
-# @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
+# BELOW CODE TO AUTOMATICALLY POPULATE THE DATABASE
+# Contact.create(
+#   first_name: "Avery",
+#   last_name: "Roswell",
+#   email: "aroswell@groceryhustler.com",
+#   note: "Founder & Owner")
+# Contact.create(
+#   first_name: "Yehuda",
+#   last_name: "Katz",
+#   email: "yehuda@example.com",
+#   note: "Developer")
 
 
 get '/home' do
   erb :index
 end
 
-get '/' do
-  erb :index
+get '/about' do
+  erb :about
 end
 
 get '/contacts' do
@@ -64,7 +62,7 @@ end
 get '/contacts/:id/edit' do
   @requested_contact = Contact.get(params[:id])
   if @requested_contact
-    erb :edit_contact
+    erb :edit
   else
     raise Sinatra::NotFound
   end

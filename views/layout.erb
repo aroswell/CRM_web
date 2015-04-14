@@ -13,14 +13,18 @@
 </h1>
   <nav>
     <a class="menu" href="/home">Home</a>
-    <a class="menu" href="/home">About</a>
+    <a class="menu" href="/about">About</a>
     <a class="menu" href="/contacts">Contacts</a>
     <a class="menu" href="/contacts/new">Add New Contact</a>
   </nav>
 
+  <div class="yield">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
+<footer class="template_footer">
+  <p>Here's our template footer: Enjoy! :P</p>
+</footer>
 
-<footer><p>Here's our template footer: Enjoy! :P</p></footer>
 </body>
 </html>

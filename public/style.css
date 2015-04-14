@@ -1,8 +1,9 @@
 
-body {
-  background-color: #c0c0c0;
+body, html {
+  background-color: white;
   margin: 0;
 }
+
 
 .header_img {
   margin: 0;
@@ -13,12 +14,15 @@ body {
 
 .template_header {
   background-color: black;
+  width: 100px;
+  height: 50px;
   color: red;
   display: inline;
   font-family: 'Rock Salt', cursive;
-  font-size: 70px;
+  font-size: 50px;
   padding: 0;
   margin: 0;
+  border: solid;
 
 }
 
@@ -26,7 +30,7 @@ nav {
   background-color: blue;
   margin: 0;
   text-align: center;
-  /*float: left;
+  float: left;
   /*width: 20%*/
 }
 .menu1 {
@@ -54,4 +58,13 @@ a.menu {
   font-style: italic;
   font-size: 18px;
   margin: 0;
+}
+
+.yield {
+  margin-left: 5px;
+}
+
+footer {
+  border-style: solid;
+  float: bottom;
 }
