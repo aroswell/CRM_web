@@ -20,7 +20,7 @@ end
 
 #Below is a test area to be remove when program is complete:
 
-# test_contact = Contact.new("David", "Banner", "banner.d@hulk.com", "Turns green with anger not envy")
+# test_contact = Contact.new("Bruce", "Banner", "banner.b@hulk.com", "Turns green with anger not envy")
 # puts test_contact.display
 
 # test_contact.id = 1001
